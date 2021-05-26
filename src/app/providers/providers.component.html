@@ -1,0 +1,87 @@
+<div>
+    <div class="container">
+        <div>
+            <h2>Proveedores</h2>
+            <div class="d-flex justify-content-end">
+              <div>
+                <button (click)="modalCreate(btnModal)" class="btn btn-primary">
+                  Crear
+                </button>
+                <button id="btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal" #btnModal class="btn-none">
+                  
+                </button>
+              </div>
+            </div>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Numero de Telefono</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let provider of providers">
+                    <th scope="row">{{provider.name}}</th>
+                    <td>{{provider.email}}</td>
+                    <td>{{provider.phoneNumber}}</td>
+                    <td>
+                      <button 
+                        class="btn btn-warning btn-sm"
+                        (click)="modalEdit(btnModal, provider)"
+                      >
+                        Editar
+                      </button>
+                      <button 
+                        class="btn btn-danger btn-sm"
+                        (click)="destroyProvider(provider)"
+                        >Borrar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+    <!-- Modal Create|Update -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Provedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="name" required [(ngModel)]="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" name="email" required [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+              <label for="numberPhone" class="form-label">Numero de Telefono</label>
+              <input type="text" class="form-control" name="phoneNumber" required [(ngModel)]="phoneNumber">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="validate()">Guardar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .btn-none {
+    display: none;
+  }
+</style>

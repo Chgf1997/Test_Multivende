@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
+
+import { MultivendeService } from './multivende.service'
+import { HttpClient } from '@angular/common/http'
+
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +12,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
+
+  isAuth = false;
+
+  constructor(private multivendeService: MultivendeService){
+
+  }
+
 }

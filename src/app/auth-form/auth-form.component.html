@@ -1,0 +1,73 @@
+<style>
+    .content {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-form {
+        margin-top: 50px;
+        padding: 20px;
+        width: 60%;
+        max-width: 500px;
+        min-width: 360px;
+        border: 2px solid #ddd;
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        box-sizing: border-box;
+    }
+
+    .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+</style>
+
+<div>
+    <div class="content">
+        <!-- Formulario Autenticacion -->
+        <form class="container-form">
+            <div class="form">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input 
+                        name="email" 
+                        type="email" 
+                        class="form-control" 
+                        placeholder="name@example.com"
+                        [(ngModel)]="email"
+                    >
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                        name="password" 
+                        type="password" 
+                        class="form-control" 
+                        placeholder="secret"
+                        [(ngModel)]="password"
+                    >
+                </div>
+            </div>
+            <div class="container-btn">
+                <button 
+                    (click)="login()"
+                    class="btn btn-secondary"
+                >
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
